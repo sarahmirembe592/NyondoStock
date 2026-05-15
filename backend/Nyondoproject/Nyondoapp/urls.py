@@ -10,4 +10,7 @@ router.register('stock', views.StockEntryViewSet, basename='stock')
 urlpatterns = [
     path('health/', views.health, name='health'),
     path('', include(router.urls)),
+     path('health/', views.health, name='health'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    # path('', include(router.urls)),
 ]
