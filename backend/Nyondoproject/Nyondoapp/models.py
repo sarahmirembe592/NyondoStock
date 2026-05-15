@@ -1,9 +1,7 @@
 from django.db import models
 from django.db.models import Sum
+
 from .validators import validate_selling_price_above_cost
-
-# Create your models here.
-
 
 
 class Product(models.Model):
