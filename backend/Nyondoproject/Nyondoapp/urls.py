@@ -1,13 +1,13 @@
-from django.urls import path
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from django.urls import include, path
+from rest_framework.routers import DefaultRouter
 
+from . import views
 
-@api_view(['GET'])
-def health(request):
-    return Response({'status': 'ok'})
-
+router = DefaultRouter()
+router.register('products', views.ProductViewSet, basename='product')
+router.register('stock', views.StockEntryViewSet, basename='stock')
 
 urlpatterns = [
-    path('health/', health, name='health'),
+    path('health/', views.health, name='health'),
+    path('', include(router.urls)),
 ]
